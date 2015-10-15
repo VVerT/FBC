@@ -1,0 +1,35 @@
+<div class="container-fluid main-championships" ng-controller="MainCtrl">
+	<div class="row" ng-class="{'loading': !loaded}">
+		<div class="champ col-sx-12 col-sm-6 col-md-4 col-lg-4"
+				ng-repeat="champ in champs track by $index">
+			<div class="championships spinner-wave">
+				<h3 class="title">{{champ.name}} {{champ.sename}}</h3>
+				<div class="search">
+					<img class="main-image"
+							ng-src="http://footballbet.com.ua/table/embl/{{champ.image}}">
+					<div class="mat-input">
+						<input id="input" ng-model="query" type="text">
+						<span class="bar"></span>
+						<label for="input">Пошук</label>
+						<div class="search-query">
+							<a href="" ng-click="sortField ='name'; reverse = !reverse">Назва <i
+									class="glyphicon glyphicon-sort"> </i></a>
+						</div>
+					</div>
+				</div>
+				<div class="table-div">
+					<table class="table table-hover">
+						<tbody ng-repeat="dat in dats track by $index">
+						<tr ng-repeat="team in dat.teams | filter:query | orderBy:sortField:reverse track by $index">
+							<td class="champ-name" ng-if="champ.name === dat.name && team.name !== ''">
+								<a ui-sref="info({id: team.id_teams})">{{team.name}}</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<footer> Виконано Терлецьким Юліаном, всі права захищено © 2015</footer>
+	</div>
+</div>

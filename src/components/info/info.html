@@ -1,0 +1,87 @@
+<div class="container-fluid main-championships" ng-controller="InfoCtrl">
+	<div ng-class="{'loading': !loaded}">
+		<div class="row" ng-repeat="team in teams track by $index"
+				ng-if="team.id_teams === champTeamId">
+			<h2 class="info-title">{{team.name}}</h2>
+
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<img ng-src="http://footballbet.com.ua/teams/embl/{{team.emblema}}"
+						class="photo-team" alt="icon">
+			</div>
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 list-info">
+				<table class="table table-hover table-bordered table-info">
+					<tr>
+						<td class="hidden-xs">
+							Назва Команди
+						</td>
+						<td>
+							{{team.name}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Тренер
+						</td>
+						<td>
+							{{team.coach}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Рік заснування
+						</td>
+						<td>
+							{{team.foundation_year}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Домашній стадіон
+						</td>
+						<td>
+							{{team.home_stadion}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Офіційний сайт
+						</td>
+						<td>
+							<a href="{{team.off_site}}">{{team.off_site}}</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Рідне місто
+						</td>
+						<td>
+							{{team.city}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Президент клубу
+						</td>
+						<td>
+							{{team.president}}
+						</td>
+					</tr>
+					<tr>
+						<td class="hidden-xs">
+							Кубки
+						</td>
+						<td class="info-hide">
+							{{team.title}}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="info-button">
+			<button type="button" class="btn btn-success" ng-click="main()"><span
+					class="glyphicon glyphicon-arrow-left"></span> Назад до Чемпіонатів
+			</button>
+		</div>
+	</div>
+	<footer> Виконано Терлецьким Юліаном, всі права захищено © 2015</footer>
+</div>
