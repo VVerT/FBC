@@ -5,7 +5,6 @@ angular
 			MainService.getChampionship(),
 			MainService.getTeam()
 		]).then(function(data) {
-			console.log(data);
 			$scope.champs = data[0].result;
 			var champs = data[0].result;
 			var teams = data[1].result;
